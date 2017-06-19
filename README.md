@@ -1,19 +1,6 @@
 # RAT-via-Telegram
 
-Windows Remote Administration Tool via Telegram (Python 2.7) | Originally created by <a href="http://github.com/Ritiek">Ritiek</a>
-
-### Why another one?
-
-- The current Remote Administration Tools in the market face 2 major problems:
-
-    - Lack of encryption.
-    - Require port forwarding in order to control from hundreds of miles.
-
-- This RAT overcomes both these issues by using the Telegram bot API.
-
-    - Fully encrypted. The data being exchanged cannot be spied upon using MITM tools.
-    - Telegram messenger app provides a simple way to communicate to the target without configuring port forward before hand on the target.
-
+Originally created by <a href="http://github.com/Ritiek">Ritiek</a>
 ## Features:
 
 - Keylogger with window title log included
@@ -72,8 +59,7 @@ Windows Remote Administration Tool via Telegram (Python 2.7) | Originally create
 - To restrict the bot so that it responds only to you, note down your `chat_id` from the console and replace it in the script and comment out the line `return True`. Don't worry, you'll know when you read the comments in the script.
 <img src="http://i.imgur.com/XKARtrp.png">
 - A folder named `RATAttack` will be created in your working directory containing `keylogs.txt` and any files you upload to the bot.
-
-### Commands:
+Commands:
 
 When using the below commands; use `/` as a prefix. For example: `/pc_info`.
 
