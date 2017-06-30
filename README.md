@@ -1,49 +1,4 @@
-# RAT-via-Telegram
-
-Originally created by <a href="http://github.com/Ritiek">Ritiek</a>
-## Features:
-
-- Keylogger with window title log included
-- Get target PC's Windows version, processor and more
-- Get target PC's IP address information and approximate location on map
-- Delete files
-- Move files
-- Show current directory 
-- Change current directory 
-- List current or specified directory 
-- Download any file from the target
-- Upload local files to the target. Send your image, pdf, exe or anything as `file` to the Telegram bot
-- Autostart playing a video in fullscreen and no controls for a youtube video on target
-- Take Screenshots
-- Execute any file
-- Access to microphone 
-- Start HTTP Proxy Server
-- Freeze target's keyboard
-- Schedule tasks to run at specified datetime
-- Encode/Decode all local files
-- Ping targets
-- [TODO] Retrieve browser (IE, Firefox, Chrome) Cookies
-- [TODO] Password Retrieval
-- [TODO] Monitor web traffic
-- [TODO] Fine-tuning scripting (i.e.: if app x is opened y is executed)
-- [TODO] Freeze target's mouse
-- [TODO] Capture clipboard (Text, Image)
-- [TODO] Hide desktop icons
-- [TODO] Update .exe
-- [TODO] Shutdown computer
-- [TODO] Self-Destruct RAT 
-- [TODO] Take snapshots from the webcam (if attached)
-- [TODO] Audio compression
-
- Thanks <a href="http://github.com/Dviros">Dviros</a>:
-- Display ARP table 
-- Get active processes and services
-
-- More coming soon!
-
-## Screenshots:
-
-<img src="http://i.imgur.com/I5nzrbz.jpg">
+# NR_RAT-BETA
 
 ## Installation & Usage:
 
@@ -97,26 +52,7 @@ You can copy the above to update your command list via `BotFather` so you don't 
 ## Compiling:
 
 ### How To Compile:
-#### Either:
-	Replace your path in compileAndRun.bat (running this will actually run the executable)
-#### Or:
-	Run `pyinstaller --onefile --noconsole C:\path\to\RATAttack.py`. You can also pass `--icon=<path\to\icon.ico>` to use any custom icon.
-- Once it is compiled successfully, find the `.exe` file in `C:\Python27\Scripts\dist\`. You can change the name of the `.exe` to anything you wish.
-- **BEWARE!** If you run the compiled `.exe`, the script will hide itself and infect your PC to run at startup. You can return to normal by using the `/self_destruct` option or manually removing `C:\Users\Username\AppData\Roaming\Portal` directory and `C:\Users\Username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\portal.lnk` (although I recommend removing them manually for the time being).
-
-### Modifying Settings:
-
-- You can also modify the name of hidden `.exe` file and location & name of the folder where the hidden `.exe` will hide itself. To do this; modify `compiled_name` and `hide_folder` respectively.
-- Assign your known chat ids to beginning of RATAttack.py
-
-## Notes:
-
-- Currently only Python2 is supported. Python3 support will be added soon!
-
-## Contributing:
-
-- This project is still in very early stages, so you can expect some bugs. Please feel free to report them! Even better, send a pull request :)
-- Any new features and ideas are most welcome! Please do submit feature requests by creating Issues
+Run Compile.bat
 
 ## Disclaimer:
 
@@ -125,3 +61,6 @@ You can copy the above to update your command list via `BotFather` so you don't 
 ## License:
 
 `The MIT License`
+
+## Credits 
+** Originally created by <a href="http://github.com/Ritiek">Ritiek</a>
