@@ -1,1 +1,0 @@
-C:/Python27/python.exe "D:\Google Drive\Programming\Python\RAT-via-Telegram\RATAttack.py"
