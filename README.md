@@ -2,7 +2,7 @@
 
 # Video
 
- [![Watch the video](http://i3.ytimg.com/vi/RD5KAAASc2s/maxresdefault.jpg)](https://youtu.be/RD5KAAASc2s)
+ [![Watch the video](https://i3.ytimg.com/vi/RD5KAAASc2s/maxresdefault.jpg)](https://youtu.be/RD5KAAASc2s)
  
 ## Installation & Usage:
 
@@ -53,9 +53,7 @@ to - select targets by it's name
 
 You can copy the above to update your command list via `BotFather` so you don't have to type them manually.
 
-# Video
 
- [![WiFiPassGrabber-Demo](https://i.ytimg.com/vi/IYr2vruZOeM/hqdefault.jpg)](https://www.youtube.com/watch?v=IYr2vruZOeM)
 
 
 ## Compiling:
