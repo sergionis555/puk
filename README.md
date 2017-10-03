@@ -1,5 +1,9 @@
 # NR_RAT-BETA
 
+# Video
+
+ [![Watch the video](http://i3.ytimg.com/vi/RD5KAAASc2s/maxresdefault.jpg)](https://youtu.be/RD5KAAASc2s)
+ 
 ## Installation & Usage:
 
 - Clone this repository.
